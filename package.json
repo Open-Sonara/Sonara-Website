@@ -1,0 +1,53 @@
+{
+  "name": "sonara-website",
+  "version": "0.1.0",
+  "private": true,
+  "description": "The official website for Sonara, the open-source, self-hosted music platform by Open Sonara.",
+  "license": "AGPL-3.0-or-later",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Open-Sonara/Sonara-Website.git"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "build:static": "cross-env SONARA_OUTPUT=export next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "next typegen && tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "e2e": "playwright test",
+    "github:snapshot": "node scripts/github-snapshot.mjs"
+  },
+  "packageManager": "pnpm@9.15.0",
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "lucide-react": "1.82.0",
+    "motion": "14.14.0",
+    "next": "16.4.6",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "server-only": "^0.0.1"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.14.1",
+    "@playwright/test": "1.65.1",
+    "@tailwindcss/postcss": "4.3.5",
+    "@testing-library/dom": "^10",
+    "@testing-library/react": "16.3.3",
+    "@types/node": "^24",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@vitejs/plugin-react": "6.3.0",
+    "cross-env": "^10.1.0",
+    "eslint": "^9",
+    "eslint-config-next": "16.4.6",
+    "jsdom": "31.0.1",
+    "tailwindcss": "4.3.5",
+    "typescript": "^5",
+    "vitest": "5.1.2"
+  }
+}

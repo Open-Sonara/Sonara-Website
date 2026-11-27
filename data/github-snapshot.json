@@ -1,0 +1,21 @@
+{
+  "core": {
+    "fullName": "Open-Sonara/Sonara",
+    "url": "https://github.com/Open-Sonara/Sonara",
+    "description": "Core platform. Just a vibe coded self-hosted Spotify alternative.  Couldn't find something that fits my needs so yeah did this. It was supposed to be something small but the ideas kept piling up...",
+    "stars": 0,
+    "forks": 0,
+    "openIssues": 0,
+    "language": "TypeScript",
+    "license": "AGPL-3.0",
+    "pushedAt": "2026-11-27T22:58:40Z",
+    "hasDiscussions": true
+  },
+  "latestRelease": null,
+  "contributors": 1,
+  "orgRepos": [
+    "Sonara",
+    "Sonara-Website"
+  ],
+  "fetchedAt": "2026-11-27T23:13:18.850Z"
+}

@@ -1,0 +1,17 @@
+node_modules
+.next
+out
+.git
+.github
+.impeccable
+coverage
+playwright-report
+test-results
+tests
+*.log
+.env
+.env*.local
+Dockerfile
+docker-compose.yml
+PRODUCT.md
+DESIGN.md

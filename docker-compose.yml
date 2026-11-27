@@ -1,0 +1,27 @@
+# Sonara website. Builds locally by default; once the release workflow has
+# published an image, you can replace `build: .` with
+#   image: ghcr.io/open-sonara/sonara-website:latest
+#
+#   docker compose up -d      then open http://localhost:3000
+
+name: sonara-website
+
+services:
+  website:
+    build:
+      context: .
+      args:
+        NEXT_PUBLIC_SITE_URL: ${NEXT_PUBLIC_SITE_URL:-https://opensonara.com}
+    restart: unless-stopped
+    ports:
+      - "${WEBSITE_PORT:-3000}:3000"
+    environment:
+      PORT: 3000
+      # Optional: raises the GitHub API rate limit for hourly revalidation. Server-side only.
+      GITHUB_TOKEN: ${GITHUB_TOKEN:-}
+    read_only: true
+    tmpfs:
+      - /tmp
+      - /app/.next/cache
+    security_opt:
+      - no-new-privileges:true
