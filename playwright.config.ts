@@ -1,6 +1,6 @@
 import { defineConfig, devices } from "@playwright/test";
 
-const PORT = Number(process.env.E2E_PORT ?? 3100);
+const PORT = Number(process.env.E2E_PORT ?? 4317);
 
 export default defineConfig({
   testDir: "tests/e2e",
@@ -19,7 +19,7 @@ export default defineConfig({
   webServer: {
     command: `pnpm start --port ${PORT}`,
     url: `http://127.0.0.1:${PORT}/healthz`,
-    reuseExistingServer: !process.env.CI,
+    reuseExistingServer: false,
     timeout: 120_000,
   },
 });

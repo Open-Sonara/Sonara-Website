@@ -34,6 +34,16 @@
 
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 
+  --animate-settle: settle 1.4s var(--ease-out-expo) 0.1s both;
+  @keyframes settle {
+    from {
+      transform: rotateX(14deg) translateY(2.25rem) scale(0.97);
+    }
+    to {
+      transform: none;
+    }
+  }
+
   --animate-eq: eq 1.1s var(--ease-out-expo) infinite alternate;
   @keyframes eq {
     0% {

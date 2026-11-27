@@ -95,7 +95,7 @@ export function SiteHeader({ nav, github, getStarted, stars }: Props) {
               <span className="tabular rounded-full bg-raised px-1.5 text-xs text-ink">{stars.toLocaleString("en")}</span>
             )}
           </a>
-          <ButtonLink href={getStarted.href} className="hidden sm:inline-flex">
+          <ButtonLink href={getStarted.href}>
             {getStarted.label}
           </ButtonLink>
           <button
