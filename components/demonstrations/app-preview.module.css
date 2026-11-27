@@ -235,6 +235,18 @@
   flex-direction: column;
   gap: 0.7em;
 }
+/* Where the phone layout overlaps this corner (lg and up), leave the area under it empty. */
+@media (min-width: 1024px) {
+  .queueUnderPhone {
+    visibility: hidden;
+  }
+}
+/* Between lg and xl the preview is smaller, so the phone also reaches the chips. */
+@media (min-width: 1024px) and (max-width: 1279.98px) {
+  .chipsUnderPhone {
+    visibility: hidden;
+  }
+}
 .queueItem {
   display: flex;
   align-items: center;

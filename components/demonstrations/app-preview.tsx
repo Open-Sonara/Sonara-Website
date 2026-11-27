@@ -28,7 +28,7 @@ const waveform = Array.from({ length: 64 }, (_, i) => 0.25 + Math.abs(Math.sin(i
  * panel, persistent player). Illustrative data only; decorative to assistive
  * technology, with the caption describing it.
  */
-export function AppPreview({ className }: { className?: string }) {
+export function AppPreview({ className, phoneOverlap = false }: { className?: string; phoneOverlap?: boolean }) {
   const recent = demoAlbums.slice(0, 5);
   const quick = [demoAlbums[6]!, demoAlbums[7]!, demoAlbums[9]!, demoAlbums[3]!, demoAlbums[10]!, demoAlbums[11]!];
   const queue = [demoAlbums[1]!, demoAlbums[8]!, demoAlbums[5]!];
@@ -103,12 +103,12 @@ export function AppPreview({ className }: { className?: string }) {
           </div>
           <div className={s.panelTitle}>{nowPlaying.title}</div>
           <div className={s.panelArtist}>{nowPlaying.artist}</div>
-          <div className={s.chips}>
+          <div className={cn(s.chips, phoneOverlap && s.chipsUnderPhone)}>
             <span className={s.chip}>FLAC · 24-bit</span>
             <span className={s.chip}>Dream pop</span>
             <span className={s.chip}>Late night</span>
           </div>
-          <div className={s.queue}>
+          <div className={cn(s.queue, phoneOverlap && s.queueUnderPhone)}>
             {queue.map((a) => (
               <div key={a.seed} className={s.queueItem}>
                 <CoverArt seed={a.seed} />

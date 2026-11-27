@@ -12,13 +12,15 @@ import type { NextConfig } from "next";
  */
 
 const isStatic = process.env.SONARA_OUTPUT === "export";
+// The CSP blocks eval and the HMR WebSocket that the dev server needs, so headers apply to production builds only.
+const isDev = process.env.NODE_ENV === "development";
 const basePath = process.env.SONARA_BASE_PATH?.replace(/\/+$/, "") || undefined;
 
 const securityHeaders = [
   { key: "X-Content-Type-Options", value: "nosniff" },
   { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
   { key: "X-Frame-Options", value: "DENY" },
-  { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=(), interest-cohort=()" },
+  { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
   {
     key: "Content-Security-Policy",
     value: [
@@ -40,12 +42,14 @@ const nextConfig: NextConfig = {
   basePath,
   trailingSlash: isStatic,
   poweredByHeader: false,
+  // Let the dev server be opened at 127.0.0.1 as well as localhost.
+  allowedDevOrigins: ["127.0.0.1"],
   reactStrictMode: true,
   images: {
     unoptimized: isStatic,
     formats: ["image/avif", "image/webp"],
   },
-  ...(isStatic
+  ...(isStatic || isDev
     ? {}
     : {
         async headers() {
