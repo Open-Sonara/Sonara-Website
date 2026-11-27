@@ -237,6 +237,24 @@ export const featureCategories: FeatureCategory[] = [
     description: "A library that scans, identifies, enriches and tidies itself.",
     features: [
       {
+        id: "playlist-migration",
+        name: "Playlist migration",
+        summary:
+          "Import playlists from Spotify (data export or Web API), CSV, JSON, M3U and text, matched to your library by a version-aware engine you can review.",
+        status: "in-development",
+        progress: "built",
+        phase: 4,
+        note: "Metadata only: Sonara never downloads audio from Spotify.",
+      },
+      {
+        id: "playlist-sync",
+        name: "Playlist sync",
+        summary: "Subscribe to YouTube and Spotify playlists and keep them in sync on a schedule, with optional approval.",
+        status: "in-development",
+        progress: "built",
+        phase: 5,
+      },
+      {
         id: "inbox",
         name: "Sonara Inbox",
         summary: "Drop files in one place and have them recognized, tagged and filed into your library.",
