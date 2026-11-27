@@ -44,6 +44,7 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   // Let the dev server be opened at 127.0.0.1 as well as localhost.
   allowedDevOrigins: ["127.0.0.1"],
+  devIndicators: false,
   reactStrictMode: true,
   images: {
     unoptimized: isStatic,
