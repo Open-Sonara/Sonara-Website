@@ -60,6 +60,15 @@ Once the release workflow has published it, the image is `ghcr.io/open-sonara/so
 
 **Static hosts** (Cloudflare Pages, GitHub Pages, any web server): run `pnpm build:static` and serve `out/`. Set `SONARA_BASE_PATH` when serving from a sub-path. Static hosts should add the security headers listed in `next.config.ts` themselves.
 
+**Plesk** (Node.js extension): `app.js` is the startup file.
+
+1. Upload the repository (or deploy it with Plesk's Git integration).
+2. In **Node.js**, set *Node.js version* to 22 or newer, *Application root* to the repository folder, *Document root* to `public`, *Application startup file* to `app.js`, and *Application mode* to production.
+3. Click **NPM install**, then **Run script** → `build`.
+4. **Restart App.** On first start after each build, `app.js` copies `.next/static` and `public/` into `.next/standalone` and starts the server.
+
+Optional environment variables (`GITHUB_TOKEN`, `NEXT_PUBLIC_SITE_URL`) go in the same panel; set `NEXT_PUBLIC_SITE_URL` before building. The build needs roughly 1–2 GB of memory; on a small plan, build locally and upload the repository with its `.next/` folder instead.
+
 **Node hosting or a reverse proxy**: run `pnpm build`, then `node .next/standalone/server.js` with `.next/static` and `public/` copied alongside, as the Dockerfile does. Set `PORT` and `HOSTNAME` as needed.
 
 ### Environment
