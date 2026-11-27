@@ -64,12 +64,12 @@ export function Hero() {
       </Container>
 
       <Container className="relative mt-12">
-        <SettleIn className="mx-auto max-w-6xl lg:pb-16">
+        <SettleIn className="mx-auto max-w-6xl lg:pb-36 xl:pb-44">
           <div className="relative hidden md:block">
             <div className="rounded-[1.4rem] border border-line-strong/60 bg-ground-2/80 p-2 shadow-float lg:mr-10">
               <AppPreview />
             </div>
-            <div className="absolute -right-2 -bottom-16 hidden w-[15.5rem] drop-shadow-[0_2rem_2.5rem_rgb(4_2_10/0.75)] lg:block xl:w-[17rem]">
+            <div className="absolute -right-2 -bottom-36 hidden w-[15.5rem] drop-shadow-[0_2rem_2.5rem_rgb(4_2_10/0.75)] lg:block xl:-bottom-44 xl:w-[17rem]">
               <AppPreviewMobile />
             </div>
           </div>

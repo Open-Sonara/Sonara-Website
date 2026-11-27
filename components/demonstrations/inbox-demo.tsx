@@ -164,7 +164,7 @@ export function InboxDemo() {
           </p>
           <p className="mt-2 text-[1.0625rem] leading-relaxed text-ink-2">{current.detail}</p>
 
-          <div className="mt-6 flex flex-wrap items-center gap-3 lg:mt-auto lg:pt-6">
+          <div className="mt-6 flex flex-wrap items-center gap-3">
             {done ? (
               <button
                 type="button"

@@ -75,6 +75,17 @@ export function Intro() {
               );
             })}
           </ul>
+          <ul className="mt-4 flex flex-wrap gap-x-4 gap-y-1.5 text-[0.8125rem] text-ink-2" aria-label="Status key">
+            <li className="inline-flex items-center gap-1.5">
+              <StatusMark tone="built" className="size-2.5 text-lav-bright" /> Built, unreleased
+            </li>
+            <li className="inline-flex items-center gap-1.5">
+              <StatusMark tone="progress" className="size-2.5 text-lav-bright" /> In development
+            </li>
+            <li className="inline-flex items-center gap-1.5">
+              <StatusMark tone="planned" className="size-2.5 text-ink-3" /> Planned
+            </li>
+          </ul>
           <Link href="/features" className="mt-5 inline-flex items-center gap-1.5 text-[0.9375rem] font-medium text-lav-bright hover:underline">
             Status of every feature
             <ArrowRight className="size-4" aria-hidden="true" />
