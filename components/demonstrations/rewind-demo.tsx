@@ -19,21 +19,21 @@ export function RewindDemo() {
 
   return (
     <div className="overflow-hidden rounded-[var(--radius-panel)] border border-lav/30 shadow-float">
-      <div className="relative bg-[linear-gradient(140deg,#5b21b6_0%,#7e3fc4_50%,#a53d96_100%)] p-5 sm:p-7">
-        <p className="font-display text-sm font-semibold text-white/90">Sonara Rewind · demo data</p>
-        <p className="mt-1 font-display text-3xl font-semibold tracking-[-0.03em] text-white sm:text-4xl">Your year in music</p>
+      <div className="relative bg-[linear-gradient(140deg,#c4b5fd_0%,#a78bfa_55%,#8b6cf0_100%)] text-lav-ink p-5 sm:p-7">
+        <p className="font-display text-sm font-semibold">Sonara Rewind · demo data</p>
+        <p className="mt-1 font-display text-3xl font-semibold tracking-[-0.03em] sm:text-4xl">Your year in music</p>
 
-        <dl className="mt-6 grid grid-cols-3 gap-3 text-white">
+        <dl className="mt-6 grid grid-cols-3 gap-3">
           <div>
-            <dt className="text-xs text-white/90">Minutes</dt>
+            <dt className="text-xs font-medium">Minutes</dt>
             <dd className="tabular font-display text-2xl font-semibold sm:text-3xl">41,280</dd>
           </div>
           <div>
-            <dt className="text-xs text-white/90">Top artist</dt>
+            <dt className="text-xs font-medium">Top artist</dt>
             <dd className="font-display text-lg leading-tight font-semibold sm:text-xl">Hollow Coast</dd>
           </div>
           <div>
-            <dt className="text-xs text-white/90">Top genre</dt>
+            <dt className="text-xs font-medium">Top genre</dt>
             <dd className="font-display text-lg leading-tight font-semibold sm:text-xl">Dream pop</dd>
           </div>
         </dl>
@@ -41,10 +41,10 @@ export function RewindDemo() {
         <div className="mt-6" aria-hidden="true">
           <div className="flex h-16 items-end gap-[3px]">
             {hours.map((h, i) => (
-              <span key={i} className="flex-1 rounded-t-sm bg-white/80" style={{ height: `${10 + h * 9}%` }} />
+              <span key={i} className="flex-1 rounded-t-sm bg-lav-ink/75" style={{ height: `${10 + h * 9}%` }} />
             ))}
           </div>
-          <div className="mt-1.5 flex justify-between text-[0.6875rem] text-white/90">
+          <div className="mt-1.5 flex justify-between text-[0.6875rem] font-medium">
             <span>midnight</span>
             <span>noon</span>
             <span>11 pm</span>

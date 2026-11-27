@@ -28,7 +28,11 @@ const phaseTone: Record<PhaseState, "built" | "progress" | "planned"> = {
   "in-progress": "progress",
   "not-started": "planned",
 };
-const phaseText: Record<PhaseState, string> = { built: "Built", "in-progress": "In progress", "not-started": "Not started" };
+const phaseText: Record<PhaseState, string> = {
+  built: "Built, unreleased",
+  "in-progress": "In development",
+  "not-started": "Planned",
+};
 
 function Stat({ label, value }: { label: string; value: string }) {
   return (

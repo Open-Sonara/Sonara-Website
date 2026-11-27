@@ -12,7 +12,7 @@ import { getStartedLink } from "@/config/navigation";
 import { releaseStatus } from "@/config/release-status";
 import { site } from "@/config/site";
 
-const attributes = ["Open source", "Self-hosted", "Docker-ready", "Privacy-focused", "Community-driven"];
+const attributes = ["Open source", "Self-hosted", "Built for Docker", "Privacy-focused", "Community-driven"];
 
 export function Hero() {
   const phase = releaseStatus.phases.find((p) => p.number === releaseStatus.currentPhase);
@@ -25,7 +25,7 @@ export function Hero() {
       <Container className="relative pt-12 text-center sm:pt-16 lg:pt-20">
         <h1
           id="hero-title"
-          className="mx-auto max-w-5xl text-[2.75rem] leading-[0.98] font-semibold tracking-[-0.03em] text-ink sm:text-7xl lg:text-[5.5rem]"
+          className="mx-auto max-w-5xl text-[2.75rem] leading-[0.98] font-semibold tracking-[-0.03em] text-ink sm:text-7xl lg:text-[5.5rem] lg:tracking-[-0.02em]"
         >
           <span className="sm:block">Your music. Your server.</span>{" "}
           <span className="text-lav-bright sm:block">Your rules.</span>
@@ -64,9 +64,14 @@ export function Hero() {
       </Container>
 
       <Container className="relative mt-12">
-        <SettleIn className="mx-auto max-w-6xl">
-          <div className="hidden rounded-[1.4rem] border border-line-strong/60 bg-ground-2/80 p-2 shadow-float md:block">
-            <AppPreview />
+        <SettleIn className="mx-auto max-w-6xl lg:pb-16">
+          <div className="relative hidden md:block">
+            <div className="rounded-[1.4rem] border border-line-strong/60 bg-ground-2/80 p-2 shadow-float lg:mr-10">
+              <AppPreview />
+            </div>
+            <div className="absolute -right-2 -bottom-16 hidden w-[15.5rem] drop-shadow-[0_2rem_2.5rem_rgb(4_2_10/0.75)] lg:block xl:w-[17rem]">
+              <AppPreviewMobile />
+            </div>
           </div>
           <AppPreviewMobile className="md:hidden" />
         </SettleIn>
