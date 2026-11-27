@@ -167,13 +167,6 @@
       radial-gradient(40% 35% at 50% 8%, rgb(167 139 250 / 0.18) 0%, rgb(167 139 250 / 0) 70%);
   }
 
-  .hairline-grid {
-    background-image:
-      linear-gradient(to right, rgb(45 38 58 / 0.45) 1px, transparent 1px),
-      linear-gradient(to bottom, rgb(45 38 58 / 0.45) 1px, transparent 1px);
-    background-size: 64px 64px;
-    mask-image: radial-gradient(70% 60% at 50% 0%, black 30%, transparent 75%);
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {

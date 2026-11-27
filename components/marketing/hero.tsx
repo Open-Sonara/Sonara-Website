@@ -4,6 +4,7 @@ import Link from "next/link";
 import { AppPreview } from "@/components/demonstrations/app-preview";
 import { AppPreviewMobile } from "@/components/demonstrations/app-preview-mobile";
 import { SettleIn } from "@/components/marketing/settle-in";
+import { SonarRings } from "@/components/marketing/sonar-rings";
 import { ButtonLink } from "@/components/ui/button";
 import { GitHubIcon } from "@/components/ui/icons";
 import { Container, DemoCaption } from "@/components/ui/section";
@@ -19,7 +20,7 @@ export function Hero() {
   return (
     <section aria-labelledby="hero-title" className="relative overflow-hidden">
       <div className="bloom pointer-events-none absolute inset-x-0 top-0 h-[56rem]" aria-hidden="true" />
-      <div className="hairline-grid pointer-events-none absolute inset-x-0 top-0 h-[40rem]" aria-hidden="true" />
+      <SonarRings />
 
       <Container className="relative pt-12 text-center sm:pt-16 lg:pt-20">
         <h1
