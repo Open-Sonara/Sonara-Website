@@ -67,7 +67,7 @@ Once the release workflow has published it, the image is `ghcr.io/open-sonara/so
 3. Click **NPM install**, then **Run script** → `build`.
 4. **Restart App.** On first start after each build, `app.js` copies `.next/static` and `public/` into `.next/standalone` and starts the server.
 
-Optional environment variables (`GITHUB_TOKEN`, `NEXT_PUBLIC_SITE_URL`) go in the same panel; set `NEXT_PUBLIC_SITE_URL` before building. The build needs roughly 1–2 GB of memory; on a small plan, build locally and upload the repository with its `.next/` folder instead.
+Optional environment variables (`GITHUB_TOKEN`, `NEXT_PUBLIC_SITE_URL`) go in the same panel; set `NEXT_PUBLIC_SITE_URL` before building. The build needs roughly 1–2 GB of memory; on a small plan, build locally on Linux (or WSL) and upload the repository with its `.next/` folder instead. Don't upload `node_modules` or a `.next/` built on Windows or macOS: some dependencies ship platform-specific binaries.
 
 **Node hosting or a reverse proxy**: run `pnpm build`, then `node .next/standalone/server.js` with `.next/static` and `public/` copied alongside, as the Dockerfile does. Set `PORT` and `HOSTNAME` as needed.
 
