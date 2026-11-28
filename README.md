@@ -69,7 +69,7 @@ Once the release workflow has published it, the image is `ghcr.io/open-sonara/so
 
 Optional environment variables (`GITHUB_TOKEN`, `NEXT_PUBLIC_SITE_URL`) go in the same panel; set `NEXT_PUBLIC_SITE_URL` before building. The build needs roughly 1–2 GB of memory; on a small plan, build locally on Linux (or WSL) and upload the repository with its `.next/` folder instead. Don't upload `node_modules` or a `.next/` built on Windows or macOS: some dependencies ship platform-specific binaries.
 
-If the build fails on the host with `GLIBC_2.29 not found` / `Failed to load SWC binary`, the server's Linux is too old for Next.js's compiler. Use the static export instead: run `pnpm build:static` on your own machine, upload the contents of `out/` (including `.htaccess`) to the domain's document root, and turn off the Node.js app for the domain. The included `.htaccess` sets the security headers, the 404 page and caching on Apache.
+On older Linux (for example AlmaLinux/RHEL 8, glibc 2.28), Next.js's native compiler cannot load (`GLIBC_2.29 not found`); the build then falls back automatically to the WebAssembly compiler (`@next/swc-wasm-nodejs`), which is why `pnpm build` uses webpack. It is slower but produces the same site. If you would rather not build on the server at all, use the static export: run `pnpm build:static` on your own machine, upload the contents of `out/` (including `.htaccess`) to the domain's document root, and turn off the Node.js app for the domain. The included `.htaccess` sets the security headers, the 404 page and caching on Apache.
 
 If nginx serves the files on its own (in Plesk: *Apache & nginx Settings* with *Proxy mode* off), `.htaccess` is ignored; add the equivalent to *Additional nginx directives*:
 
