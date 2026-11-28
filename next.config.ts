@@ -46,10 +46,10 @@ const nextConfig: NextConfig = {
   allowedDevOrigins: ["127.0.0.1"],
   devIndicators: false,
   reactStrictMode: true,
-  images: {
-    unoptimized: isStatic,
-    formats: ["image/avif", "image/webp"],
-  },
+  // The site ships no raster images that need resizing, so the server never needs sharp,
+  // a native module that can break on older Linux hosts. Leave it out of the standalone output.
+  images: { unoptimized: true },
+  outputFileTracingExcludes: { "*": ["**/node_modules/sharp/**", "**/node_modules/@img/**"] },
   ...(isStatic || isDev
     ? {}
     : {

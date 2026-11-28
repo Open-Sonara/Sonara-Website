@@ -7,7 +7,7 @@ const eslintConfig = defineConfig([
   ...nextTs,
   // app.js is the CommonJS startup file for Plesk/Passenger.
   { files: ["app.js"], languageOptions: { sourceType: "commonjs" }, rules: { "@typescript-eslint/no-require-imports": "off" } },
-  globalIgnores([".impeccable/**", ".next/**", "out/**", "build/**", "coverage/**", "playwright-report/**", "test-results/**", "next-env.d.ts"]),
+  globalIgnores([".impeccable/**", "dist/**", ".next/**", "out/**", "build/**", "coverage/**", "playwright-report/**", "test-results/**", "next-env.d.ts"]),
 ]);
 
 export default eslintConfig;

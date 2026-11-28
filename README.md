@@ -71,6 +71,19 @@ Optional environment variables (`GITHUB_TOKEN`, `NEXT_PUBLIC_SITE_URL`) go in th
 
 If the build fails on the host with `GLIBC_2.29 not found` / `Failed to load SWC binary`, the server's Linux is too old for Next.js's compiler. Use the static export instead: run `pnpm build:static` on your own machine, upload the contents of `out/` (including `.htaccess`) to the domain's document root, and turn off the Node.js app for the domain. The included `.htaccess` sets the security headers, the 404 page and caching on Apache.
 
+If nginx serves the files on its own (in Plesk: *Apache & nginx Settings* with *Proxy mode* off), `.htaccess` is ignored; add the equivalent to *Additional nginx directives*:
+
+```nginx
+error_page 404 /404.html;
+add_header X-Content-Type-Options "nosniff" always;
+add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+add_header X-Frame-Options "DENY" always;
+add_header Permissions-Policy "camera=(), microphone=(), geolocation=()" always;
+add_header Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'" always;
+location ~ ^/(opengraph-image|apple-icon)$ { default_type image/png; }
+location ^~ /_next/static/ { add_header Cache-Control "public, max-age=31536000, immutable"; }
+```
+
 **Node hosting or a reverse proxy**: run `pnpm build`, then `node .next/standalone/server.js` with `.next/static` and `public/` copied alongside, as the Dockerfile does. Set `PORT` and `HOSTNAME` as needed.
 
 ### Environment
