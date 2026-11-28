@@ -69,6 +69,8 @@ Once the release workflow has published it, the image is `ghcr.io/open-sonara/so
 
 Optional environment variables (`GITHUB_TOKEN`, `NEXT_PUBLIC_SITE_URL`) go in the same panel; set `NEXT_PUBLIC_SITE_URL` before building. The build needs roughly 1–2 GB of memory; on a small plan, build locally on Linux (or WSL) and upload the repository with its `.next/` folder instead. Don't upload `node_modules` or a `.next/` built on Windows or macOS: some dependencies ship platform-specific binaries.
 
+If the build fails on the host with `GLIBC_2.29 not found` / `Failed to load SWC binary`, the server's Linux is too old for Next.js's compiler. Use the static export instead: run `pnpm build:static` on your own machine, upload the contents of `out/` (including `.htaccess`) to the domain's document root, and turn off the Node.js app for the domain. The included `.htaccess` sets the security headers, the 404 page and caching on Apache.
+
 **Node hosting or a reverse proxy**: run `pnpm build`, then `node .next/standalone/server.js` with `.next/static` and `public/` copied alongside, as the Dockerfile does. Set `PORT` and `HOSTNAME` as needed.
 
 ### Environment
