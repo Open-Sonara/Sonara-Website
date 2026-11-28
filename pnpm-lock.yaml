@@ -24,6 +24,9 @@ importers:
       '@fontsource-variable/bricolage-grotesque':
         specifier: ^5.3.0
         version: 5.3.0
+      '@next/swc-wasm-nodejs':
+        specifier: 16.4.6
+        version: 16.4.6
       '@tailwindcss/postcss':
         specifier: 4.3.5
         version: 4.3.5
@@ -463,6 +466,9 @@ packages:
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [linux]
+
+  '@next/swc-wasm-nodejs@16.4.6':
+    resolution: {integrity: sha512-X6is6K2SxLpPriGlD5CHsGGYJpvpoJroP54rxBB0BHxaEJU7aSLZ30ydL6KHRBTv2LLQ+fKYmwdHvKaDug38RQ==}
 
   '@next/swc-win32-arm64-msvc@16.4.6':
     resolution: {integrity: sha512-U0p7/tEtqvHX2crhd841CDwKtp5CFkKXVjOhmfccR3Pvp64sj8KBwRqsvltqLOwVBbj0NtkxwXSDpEHYGbxeXQ==}
@@ -2830,6 +2836,8 @@ snapshots:
 
   '@next/swc-linux-x64-musl@16.4.6':
     optional: true
+
+  '@next/swc-wasm-nodejs@16.4.6': {}
 
   '@next/swc-win32-arm64-msvc@16.4.6':
     optional: true
